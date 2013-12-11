@@ -463,6 +463,10 @@ function onPjaxPopstate(event) {
       })
       container.trigger(popstateEvent)
 
+      if (popstateEvent.isDefaultPrevented()) {
+        return
+      }
+
       var options = {
         id: state.id,
         url: state.url,
